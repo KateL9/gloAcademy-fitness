@@ -1,5 +1,5 @@
 {
-    "name": "firstLesson",
+    "name": "fitness",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
@@ -8,15 +8,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/KateL9/glo.git"
+        "url": "git+https://github.com/KateL9/gloAcademy-fitness.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/KateL9/glo/issues"
+        "url": "https://github.com/KateL9/gloAcademy-fitness/issues"
     },
-    "homepage": "https://github.com/KateL9/glo#readme",
+    "homepage": "https://github.com/KateL9/gloAcademy-fitness#readme",
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",

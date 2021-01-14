@@ -6,6 +6,7 @@ module.exports = {
         filename: 'dev-bundle.js',
         path: path.resolve(__dirname, './dist')
     },
+    devtool: 'eval-source-map',
     mode: 'development',
     devServer: {
         open: true,
