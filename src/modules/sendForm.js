@@ -41,8 +41,17 @@ const sendForm = (idform) => {
             deleteMessage();
         } else {
             setData(event, form);
+            clearInput(form);
         }
     });
+
+    const clearInput = () => {
+        let inputs = [...form.querySelectorAll('input')];
+        inputs.forEach((key) => {
+            key.value = '';
+        });
+        policyCheckbox.checked = false;
+    }
 
     const setData = (event, form) => {
         event.preventDefault();
@@ -76,6 +85,6 @@ const sendForm = (idform) => {
                 console.log(error);
             });
     }
-}
+};
 
 export default sendForm;
