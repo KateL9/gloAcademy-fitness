@@ -7,7 +7,8 @@ const sendForm = (idform) => {
         thanksPopup = document.getElementById('thanks'),
         policyCheckbox = form.querySelector('input[type="checkbox"]'),
         inputName = form.querySelector('input[type="text"]'),
-        inputPhone = form.querySelector('input[type="tel"]');
+        inputPhone = form.querySelector('input[type="tel"]'),
+        radioBtn = [...form.querySelectorAll('input[type=radio]')];
 
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 16px';
@@ -18,12 +19,12 @@ const sendForm = (idform) => {
             statusMessage.textContent = '';
         }, 5000);
     };
-
     if (policyCheckbox) {
         policyCheckbox.removeAttribute('required');
         inputName.removeAttribute('required');
         inputPhone.removeAttribute('required');
     }
+
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -34,17 +35,16 @@ const sendForm = (idform) => {
             deleteMessage()
             return;
         }
-
         if (policyCheckbox && !policyCheckbox.checked) {
             form.appendChild(statusMessage);
             statusMessage.textContent = policyMessage;
             deleteMessage();
         } else {
             setData(event, form);
-            clearInput(form);
             setTimeout(() => {
                 thanksPopup.style.display = 'none';
             }, 5000);
+            clearInput(form);
         }
     });
 
@@ -53,19 +53,32 @@ const sendForm = (idform) => {
         inputs.forEach((key) => {
             key.value = '';
         });
-        policyCheckbox.checked = false;
+        if (policyCheckbox) {
+            policyCheckbox.checked = false;
+        }
         statusMessage.textContent = '';
     }
     thanksPopup.addEventListener('click', (event) => {
         if (event.target.matches('.overlay') || event.target.matches('[class *= close]')) {
             thanksPopup.style.display = 'none';
         }
-    })
+    });
 
     const thanks = (message) => {
         thanksPopup.querySelector('p').textContent = message;
         thanksPopup.style.display = 'block';
-    }
+    };
+    form.addEventListener('change', () => {
+        if (radioBtn[0] || radioBtn[1]) {
+            if (radioBtn[0].checked) {
+                radioBtn[1].checked = false;
+            } else {
+                radioBtn[0].checked = false;
+                radioBtn[1].checked = true;
+            }
+        }
+    });
+
 
     const setData = (event, form) => {
         event.preventDefault();

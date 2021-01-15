@@ -1,20 +1,15 @@
 const mainSlider = () => {
     const slider = document.querySelector('.main-slider'),
-        allSlides = [...slider.querySelectorAll('.slide')];
+        allSlides = slider.querySelectorAll('.slide');
 
     let count = 0;
-
-    const nextSlide = (array, index) => {
-        array[index].style.display = 'none';
-        array[index + 1].style.display = 'flex';
-    };
-
     const slide = () => {
-        if (count >= allSlides.length - 1) {
+        allSlides[count].style.display = 'none';
+        count++;
+        if (count >= allSlides.length) {
             count = 0;
         }
-        nextSlide(allSlides, count);
-        ++count;
+        allSlides[count].style.display = 'flex';
     }
 
     const start = (time = 2000) => {

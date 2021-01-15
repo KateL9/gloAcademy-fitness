@@ -8,7 +8,7 @@ const formPopups = () => {
         if (event.target.matches('.open-popup')) {
             appointmentForm.style.display = 'block';
         } else if (event.target.matches('.callback-btn')) {
-            if (!event.target.closest('#footer_form') || (event.target.closest('#footer_form') && phone.value)) {
+            if (!event.target.closest('#footer_form')) {
                 callbackForm.style.display = 'block';
             }
         } else if (event.target.closest('.fixed-gift')) {

@@ -17,4 +17,5 @@ sendForm('form1');
 sendForm('form2');
 sendForm('card_order');
 sendForm('banner-form');
+sendForm('footer_form');
 formPopups();
