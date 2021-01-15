@@ -4,6 +4,7 @@ const sendForm = (idform) => {
         successMessage = 'Спасибо! Мы скоро свяжемся с вами!',
         policyMessage = 'Согласитесь на обработку персональных данных',
         form = document.getElementById(idform),
+        thanksPopup = document.getElementById('thanks'),
         policyCheckbox = form.querySelector('input[type="checkbox"]'),
         inputName = form.querySelector('input[type="text"]'),
         inputPhone = form.querySelector('input[type="tel"]');
@@ -27,7 +28,6 @@ const sendForm = (idform) => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
-
         if (inputName && (inputPhone.value == '' || inputName.value == '')) {
             form.appendChild(statusMessage);
             statusMessage.textContent = 'Необходимо заполнить все поля!';
@@ -42,6 +42,9 @@ const sendForm = (idform) => {
         } else {
             setData(event, form);
             clearInput(form);
+            setTimeout(() => {
+                thanksPopup.style.display = 'none';
+            }, 5000);
         }
     });
 
@@ -51,6 +54,17 @@ const sendForm = (idform) => {
             key.value = '';
         });
         policyCheckbox.checked = false;
+        statusMessage.textContent = '';
+    }
+    thanksPopup.addEventListener('click', (event) => {
+        if (event.target.matches('.overlay') || event.target.matches('[class *= close]')) {
+            thanksPopup.style.display = 'none';
+        }
+    })
+
+    const thanks = (message) => {
+        thanksPopup.querySelector('p').textContent = message;
+        thanksPopup.style.display = 'block';
     }
 
     const setData = (event, form) => {
@@ -78,10 +92,10 @@ const sendForm = (idform) => {
                 if (response.status !== 200) {
                     throw new Error('status network not 200')
                 }
-                statusMessage.textContent = successMessage;
+                thanks(successMessage);
             })
             .catch((error) => {
-                statusMessage.textContent = errorMessage;
+                thanks(errorMessage);
                 console.log(error);
             });
     }

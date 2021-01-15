@@ -15,9 +15,10 @@ const formPopups = () => {
             event.target.style.display = 'none';
             giftForm.style.display = 'block';
         } else if (event.target.matches('.overlay') || event.target.matches('[class *= close]')) {
-            appointmentForm.style.display = 'none';
-            callbackForm.style.display = 'none';
-            giftForm.style.display = 'none';
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach((item) => {
+                item.style.display = 'none';
+            });
         }
     });
 };

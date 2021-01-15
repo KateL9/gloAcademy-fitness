@@ -10,7 +10,6 @@ import sendForm from './modules/sendForm';
 
 
 selectClub();
-formPopups();
 mainSlider();
 maskPhone();
 isValid();
@@ -18,3 +17,4 @@ sendForm('form1');
 sendForm('form2');
 sendForm('card_order');
 sendForm('banner-form');
+formPopups();
