@@ -8,7 +8,7 @@ const sendForm = (idform) => {
         policyCheckbox = form.querySelector('input[type="checkbox"]'),
         inputName = form.querySelector('input[type="text"]'),
         inputPhone = form.querySelector('input[type="tel"]'),
-        radioBtn = [...form.querySelectorAll('input[type=radio]')];
+        radioBtn = [...form.querySelectorAll('#footer_form input[type=radio]')];
 
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 16px';
@@ -49,7 +49,7 @@ const sendForm = (idform) => {
     });
 
     const clearInput = () => {
-        let inputs = [...form.querySelectorAll('input')];
+        let inputs = [...form.querySelectorAll('input[type="text"]'), ...form.querySelectorAll('input[type="tel"]')];
         inputs.forEach((key) => {
             key.value = '';
         });

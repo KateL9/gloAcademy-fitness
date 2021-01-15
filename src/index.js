@@ -6,7 +6,7 @@ import mainSlider from './modules/mainSlider';
 import maskPhone from './modules/maskPhone';
 import isValid from './modules/isValid';
 import sendForm from './modules/sendForm';
-
+import calculator from './modules/calculator';
 
 
 selectClub();
@@ -19,3 +19,4 @@ sendForm('card_order');
 sendForm('banner-form');
 sendForm('footer_form');
 formPopups();
+calculator();
