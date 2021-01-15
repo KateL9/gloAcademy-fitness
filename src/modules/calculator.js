@@ -22,7 +22,7 @@ const calculator = () => {
     let amount = 1;
     // change price
     form.addEventListener('change', (event) => {
-        debugger;
+
         const checked = () => {
             if (schelkovo.checked) {
                 priceTotal.innerHTML = prices.schelkovo[amount];
@@ -32,7 +32,6 @@ const calculator = () => {
         };
 
         const checkPromo = (promo) => {
-            console.log(promo.value);
             if (promoInput && promo.trim() === 'ТЕЛО2020') {
                 priceTotal.innerHTML = priceTotal.textContent - Math.floor(priceTotal.textContent * (30 / 100));
             }
