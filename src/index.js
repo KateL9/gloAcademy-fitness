@@ -10,7 +10,7 @@ import calculator from './modules/calculator';
 
 
 selectClub();
-mainSlider();
+//mainSlider();
 maskPhone();
 isValid();
 sendForm('form1');
