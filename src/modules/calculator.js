@@ -1,7 +1,7 @@
 const calculator = () => {
     const form = document.getElementById('card_order'),
         priceTotal = document.querySelector('#price-total'),
-        promo = document.querySelector('input[placeholde = "Промокод"]'),
+        promoInput = document.querySelector('input[placeholder = "Промокод"]'),
         mozaika = document.querySelector('#card_leto_mozaika'),
         schelkovo = document.querySelector('#card_leto_schelkovo'),
         prices = {
@@ -16,23 +16,32 @@ const calculator = () => {
                 6: 14990,
                 9: 21990,
                 12: 24990,
-            },
-            discount: 0,
+            }
         };
 
-    const caclPrice = (priceClient, discount = 0) => {
-        priceTotal.textContent = priceClient - Math.floor(priceClient * (discount / 100));
-    };
-
-    let amount;
+    let amount = 1;
     // change price
     form.addEventListener('change', (event) => {
-        console.log(event.target.value);
+        debugger;
+        const checked = () => {
+            if (schelkovo.checked) {
+                priceTotal.innerHTML = prices.schelkovo[amount];
+            } else if (mozaika.checked) {
+                priceTotal.innerHTML = prices.mozaika[amount];
+            }
+        };
 
-        if (schelkovo.checked && event.target.matches('#card_leto_schelkovo')) {
-            priceTotal.innerHTML = prices.schelkovo[amount];
-        } else if (mozaika.checked && event.target.matches('#card_leto_mozaika')) {
-            priceTotal.innerHTML = prices.mozaika[amount];
+        const checkPromo = (promo) => {
+            console.log(promo.value);
+            if (promoInput && promo.trim() === 'ТЕЛО2020') {
+                priceTotal.innerHTML = priceTotal.textContent - Math.floor(priceTotal.textContent * (30 / 100));
+            }
+        };
+        if (!event.target.closest('.time')) {
+            checked();
+            if (event.target.matches('input[placeholder = "Промокод"]')) {
+                checkPromo(event.target.value);
+            }
         } else {
             if (mozaika && mozaika.checked) {
                 amount = event.target.value;
