@@ -8,7 +8,7 @@ import isValid from './modules/isValid';
 import sendForm from './modules/sendForm';
 import calculator from './modules/calculator';
 import scroll from './modules/scroll';
-
+import humburgerMenu from './modules/humburgerMenu';
 
 selectClub();
 mainSlider();
@@ -22,3 +22,4 @@ sendForm('footer_form');
 formPopups();
 calculator();
 scroll();
+humburgerMenu();
