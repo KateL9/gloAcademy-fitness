@@ -8,7 +8,8 @@ import isValid from './modules/isValid';
 import sendForm from './modules/sendForm';
 import calculator from './modules/calculator';
 import scroll from './modules/scroll';
-import humburgerMenu from './modules/humburgerMenu';
+import hamburgerMenu from './modules/hamburgerMenu';
+import slider from './modules/slider';
 
 selectClub();
 mainSlider();
@@ -22,4 +23,5 @@ sendForm('footer_form');
 formPopups();
 calculator();
 scroll();
-humburgerMenu();
+hamburgerMenu();
+slider();

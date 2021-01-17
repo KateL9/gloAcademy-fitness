@@ -1,7 +1,5 @@
-const humburgerMenu = () => {
+const hamburgerMenu = () => {
     const navigationMenu = document.querySelector('.top-menu'),
-        navigationMenuLinks = document.querySelector('.hidden-small'),
-        humburgerMenuBtn = document.querySelector('.hidden-large'),
         popupMenu = document.querySelector('.popup-menu');
 
     ['scroll', 'resize'].forEach(evt =>
@@ -25,4 +23,4 @@ const humburgerMenu = () => {
 
 }
 
-export default humburgerMenu;
+export default hamburgerMenu;
