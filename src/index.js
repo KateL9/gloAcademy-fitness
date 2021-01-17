@@ -10,6 +10,7 @@ import calculator from './modules/calculator';
 import scroll from './modules/scroll';
 import hamburgerMenu from './modules/hamburgerMenu';
 import slider from './modules/slider';
+import carousel from './modules/carousel';
 
 selectClub();
 mainSlider();
@@ -25,3 +26,4 @@ calculator();
 scroll();
 hamburgerMenu();
 slider();
+carousel();

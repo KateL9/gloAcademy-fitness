@@ -20,7 +20,6 @@ const calculator = () => {
         };
 
     let amount = 1;
-    // change price
     form.addEventListener('change', (event) => {
 
         const checked = () => {
