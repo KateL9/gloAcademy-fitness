@@ -31,7 +31,7 @@ const calculator = () => {
         };
 
         const checkPromo = (promo) => {
-            if (promoInput && promo.trim() === 'ТЕЛО2020') {
+            if (promoInput && promo.trim() === 'ТЕЛО2021') {
                 priceTotal.innerHTML = priceTotal.textContent - Math.floor(priceTotal.textContent * (30 / 100));
             }
         };
