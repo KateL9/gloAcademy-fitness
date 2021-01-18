@@ -6,9 +6,10 @@ const sendForm = (idform) => {
         form = document.getElementById(idform),
         thanksPopup = document.getElementById('thanks'),
         policyCheckbox = form.querySelector('input[type="checkbox"]'),
-        inputName = form.querySelector('input[type="text"]'),
+        inputName = form.querySelector('input[name="name"]'),
         inputPhone = form.querySelector('input[type="tel"]'),
         radioBtn = [...form.querySelectorAll('#footer_form input[type=radio]')];
+    let price = document.querySelector('#price-total');
 
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 16px';
@@ -82,14 +83,17 @@ const sendForm = (idform) => {
 
     const setData = (event, form) => {
         event.preventDefault();
+
         form.appendChild(statusMessage);
         statusMessage.textContent = loadMessage;
         const formData = new FormData(form);
         let body = {};
-
         formData.forEach((val, key) => {
             body[key] = val;
         });
+        if (form.id == 'card_order') {
+            body.price = price.textContent;
+        }
         const postData = (body) => {
             return fetch('./server.php', {
                 method: 'POST',

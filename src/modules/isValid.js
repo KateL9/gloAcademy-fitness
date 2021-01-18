@@ -12,15 +12,15 @@ const isValid = () => {
                 target.style.border = `3px solid red`
             }
         } else if (target.name == 'phone') {
-            console.log(target.value.length);
-            if (target.value.length <= 11) {
+            if (target.value.length <= 17) {
                 target.setCustomValidity("Введите 11 цифр");
                 target.value = '';
                 target.style.border = '3px solid red';
             }
-
-        } else {
-            target.style.border = '1px solid #b7b7b7';
+            if (target.value.length > 17) {
+                target.setCustomValidity("");
+                target.style.border = '1px solid #b7b7b7';
+            }
         }
     });
 }
